@@ -1,4 +1,4 @@
-const SoftSkill = require('../models/SoftSkill');
+const SoftSkill = require('../models/softSkillModel.js');
 
 // Create a new Soft Skill
 exports.createSoftSkill = async (req, res) => {

@@ -1,4 +1,4 @@
-const WorkExperience = require('../models/WorkExperience');
+const WorkExperience = require('../models/workExperienceModel.js');
 
 // Create a new Work Experience
 exports.createWorkExperience = async (req, res) => {

@@ -1,4 +1,4 @@
-const HardSkill = require('../models/HardSkill');
+const HardSkill = require('../models/hardSkillModel.js');
 
 // Create a new Hard Skill
 exports.createHardSkill = async (req, res) => {

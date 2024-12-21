@@ -5,7 +5,7 @@ const {
     getCertifications,
     updateCertification,
     deleteCertification
-}=require('../controllers/certificatitonController');
+}=require('../controllers/certificationController.js');
 
 router.post('/create', createCertification);
 

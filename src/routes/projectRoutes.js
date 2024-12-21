@@ -5,7 +5,7 @@ const {
   getProjects,
   updateProject,
   deleteProject
-} = require('../controllers/projectController');
+} = require('../controllers/projectController.js');
 
 // Create Project
 router.post('/create', createProject);

@@ -5,7 +5,7 @@ const {
   getWorkExperiences,
   updateWorkExperience,
   deleteWorkExperience
-}=require('../controllers/workExperienceController');
+}=require('../controllers/workExperienceController.js');
 
 router.post('/create', createWorkExperience);
 

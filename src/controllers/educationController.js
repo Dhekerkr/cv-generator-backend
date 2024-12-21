@@ -1,4 +1,4 @@
-const Education = require('../models/Education');
+const Education = require('../models/educationModel.js');
 
 // Create a new Education
 exports.createEducation = async (req, res) => {

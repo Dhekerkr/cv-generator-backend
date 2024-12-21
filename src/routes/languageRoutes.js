@@ -5,7 +5,7 @@ const {
   getLanguages,
   updateLanguage,
   deleteLanguage
-}=require('../controllers/languageController');
+}=require('../controllers/languageController.js');
 
 router.post=('/create', createLanguage);
 

@@ -16,14 +16,14 @@ app.use(express.json());
 app.use('/api/users', require('./routes/userRoutes'));
 
 // CV sections routes
-app.use('/api/personalInfo', require('./routes/personnalInfoRoutes'));
-app.use('/api/softSkills', require('./routes/softSkillRoutes'));
-app.use('/api/hardSkills', require('./routes/hardSkillRoutes'));
-app.use('/api/workExperience', require('./routes/workExperienceRoutes'));
-app.use('/api/education', require('./routes/projectRoutes'));
-app.use('/api/projects', require('./routes/educationRoutes')); 
-app.use('/api/certifications', require('./routes/certificationRoutes'));
-app.use('/api/languages', require('./routes/languageRoutes')); 
+app.use('/api/personalInfo', require('./routes/personalInfoRoutes.js'));
+app.use('/api/softSkills', require('./routes/softSkillRoutes.js'));
+app.use('/api/hardSkills', require('./routes/hardSkillRoutes.js'));
+app.use('/api/workExperience', require('./routes/workExperienceRoutes.js'));
+app.use('/api/education', require('./routes/projectRoutes.js'));
+app.use('/api/projects', require('./routes/educationRoutes.js')); 
+app.use('/api/certifications', require('./routes/certificationRoutes.js'));
+app.use('/api/languages', require('./routes/languageRoutes.js')); 
 
 // Default route
 app.get('/', (req, res) => {

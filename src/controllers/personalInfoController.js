@@ -1,4 +1,4 @@
-const PersonalInfo = require('../models/PersonalInfo');
+const PersonalInfo = require('../models/personalInfoModel.js');
 
 // Create new Personal Info
 exports.createPersonalInfo = async (req, res) => {

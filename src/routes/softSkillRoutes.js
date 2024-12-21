@@ -5,7 +5,7 @@ const {
   getSoftSkills,
   updateSoftSkill,
   deleteSoftSkill
-}=require('../controllers/softSkillController');
+}=require('../controllers/softSkillController.js');
 
 router.post('/create', createSoftSkill);
 

@@ -5,7 +5,7 @@ const {
   getHardSkills,
   updateHardSkill,
   deleteHardSkill
-} = require('../controllers/hardSkillController');
+} = require('../controllers/hardSkillController.js');
 
 // Create Hard Skill
 router.post('/create', createHardSkill);

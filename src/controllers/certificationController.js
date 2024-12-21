@@ -1,4 +1,4 @@
-const Certification = require('../models/Certification');
+const Certification = require('../models/certificationModel.js');
 
 // Create a new Certification
 exports.createCertification = async (req, res) => {

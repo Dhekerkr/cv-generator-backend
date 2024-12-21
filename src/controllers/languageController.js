@@ -1,4 +1,4 @@
-const Language = require('../models/Language');
+const Language = require('../models/languagesModel.js');
 
 // Create a new Language
 exports.createLanguage = async (req, res) => {

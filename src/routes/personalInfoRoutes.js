@@ -5,7 +5,7 @@ const {
   getPersonalInfo,
   updatePersonalInfo,
   deletePersonalInfo
-}=require('../controllers/personalInfoController');
+}=require('../controllers/personalInfoController.js');
 
 router.post('/create', createPersonalInfo);
 

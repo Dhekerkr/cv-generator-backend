@@ -5,7 +5,7 @@ const {
   getEducation,
   updateEducation,
   deleteEducation
-}=require('../controllers/educationController');
+}=require('../controllers/educationController.js');
 
 router.post('/create', createEducation);
 

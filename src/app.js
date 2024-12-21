@@ -27,7 +27,7 @@ app.use('/api/languages', require('./routes/languageRoutes.js'));
 
 // Default route
 app.get('/', (req, res) => {
-    res.send('CV Generator API is running!');
+    res.send('CV Generator API is running! helloooooo!');
 });
 
 // Start server

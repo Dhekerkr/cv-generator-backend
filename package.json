@@ -22,6 +22,7 @@
     "mongoose": "^8.9.1"
   },
   "devDependencies": {
+    "apidoc": "^1.2.0",
     "nodemon": "^3.1.9"
   },
   "engines": {

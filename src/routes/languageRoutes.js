@@ -7,12 +7,12 @@ const {
   deleteLanguage
 }=require('../controllers/languageController.js');
 
-router.post=('/create', createLanguage);
+router.post('/create', createLanguage);
 
-router.get=('/:userId',getLanguages);
+router.get('/:userId',getLanguages);
 
-router.put=('/:id', updateLanguage);
+router.put('/:id', updateLanguage);
 
-router.delete=('/:id',deleteLanguage);
+router.delete('/:id',deleteLanguage);
 
 module.exports=router;

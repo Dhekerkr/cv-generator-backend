@@ -1,32 +1,13 @@
 const mongoose = require('mongoose');
 
 const projectSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
-  projectName: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String
-  },
-  technologies: {
-    type: [String]  // Array of technologies used (e.g., ['React', 'Node.js'])
-  },
-  startDate: {
-    type: Date
-  },
-  endDate: {
-    type: Date
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  }
-});
+  projectName: { type: String, required: true },
+  description: { type: String , required : true,},
+  technologies: { type: [String] , required : true,}, // This expects an array
+  startDate: { type: Date , required : true,},
+  endDate: { type: Date , required : true,},
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+}, { timestamps: true });
 
 const Project = mongoose.model('Project', projectSchema);
-module.exports = Project;
+module.exports = Project; 

@@ -20,8 +20,8 @@ app.use('/api/personalInfo', require('./routes/personalInfoRoutes.js'));
 app.use('/api/softSkills', require('./routes/softSkillRoutes.js'));
 app.use('/api/hardSkills', require('./routes/hardSkillRoutes.js'));
 app.use('/api/workExperience', require('./routes/workExperienceRoutes.js'));
-app.use('/api/education', require('./routes/projectRoutes.js'));
-app.use('/api/projects', require('./routes/educationRoutes.js')); 
+app.use('/api/education', require('./routes/educationRoutes.js'));
+app.use('/api/projects', require('./routes/projectRoutes.js')); 
 app.use('/api/certifications', require('./routes/certificationRoutes.js'));
 app.use('/api/languages', require('./routes/languageRoutes.js')); 
 

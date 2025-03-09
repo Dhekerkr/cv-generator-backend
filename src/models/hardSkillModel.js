@@ -4,15 +4,15 @@ const hardSkillSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required : true,
   },
   skill: {
     type: String,
-    required: true
+    required : true,
   },
   proficiency: {
     type: String,  // Example: Beginner, Intermediate, Advanced
-    required: true
+    required : true,
   },
   createdAt: {
     type: Date,

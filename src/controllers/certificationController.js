@@ -3,13 +3,30 @@ const Certification = require('../models/certificationModel.js');
 // Create a new Certification
 exports.createCertification = async (req, res) => {
   try {
-    const newCertification = new Certification(req.body);
+    // Convert userId to ObjectId
+    if(!Array.isArray(req.body)){
+      return res.status(400).json({error:"Expected an array of certifications"})
+    }
+    const certificationData= req.body[0];
+    const newCertification = new Certification(certificationData);
     await newCertification.save();
-    res.status(201).json(newCertification);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const certifications=[newCertification];
+
+    if (req.body.length > 1){
+      for (let i=1; i<req.body.length; i++){
+        const certification =  new Certification(req.body[i]);
+        await certification.save();
+        certifications.push(certification);
+      }
+    }
+    res.status(201).json(certifications);
+
+  } catch (error){
+      console.error("Detailed error:", error);
+      res.status(400).json({error:error.message});
   }
 };
+
 
 // Get Certifications by userId
 exports.getCertifications = async (req, res) => {

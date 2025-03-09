@@ -4,20 +4,24 @@ const certificationSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required : true,
+
   },
   certificationName: {
     type: String,
-    required: true
+    required : true,
   },
   issuer: {
-    type: String
+    type: String,
+    required : true,
   },
   issueDate: {
-    type: Date
+    type: Date,
+    required : true,
   },
   expirationDate: {
-    type: Date
+    type: Date,
+    required : true,
   },
   createdAt: {
     type: Date,

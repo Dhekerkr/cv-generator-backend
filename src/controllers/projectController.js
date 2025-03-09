@@ -3,10 +3,28 @@ const Project = require('../models/projectModel.js');
 // Create a new Project
 exports.createProject = async (req, res) => {
   try {
-    const newProject = new Project(req.body);
+    if (!Array.isArray(req.body)) {
+      return res.status(400).json({ error: "Expected an array of projects" });
+    }
+    
+    const projectData = req.body[0];
+    
+    const newProject = new Project(projectData);
+    
     await newProject.save();
-    res.status(201).json(newProject);
+    
+    const projects = [newProject];
+    if (req.body.length > 1) {
+      for (let i = 1; i < req.body.length; i++) {
+        const project = new Project(req.body[i]);
+        await project.save();
+        projects.push(project);
+      }
+    }
+    
+    res.status(201).json(projects);
   } catch (error) {
+    console.error("Detailed error:", error);
     res.status(400).json({ error: error.message });
   }
 };

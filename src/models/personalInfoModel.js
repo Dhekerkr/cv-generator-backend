@@ -4,25 +4,28 @@ const personalInfoSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required : true,
   },
   fullName: {
     type: String,
-    required: true
+    required : true,
   },
   phone: {
-    type: String
+    type: String,
+    required : true,
   },
   email: {
     type: String,
-    required: true,
+    required : true,
     unique: true
   },
   address: {
-    type: String
+    type: String,
+    required : true,
   },
   summary: {
-    type: String
+    type: String,
+    required : true,
   },
   createdAt: {
     type: Date,

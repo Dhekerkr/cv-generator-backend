@@ -3,9 +3,21 @@ const Language = require('../models/languagesModel.js');
 // Create a new Language
 exports.createLanguage = async (req, res) => {
   try {
-    const newLanguage = new Language(req.body);
+    if (!Array.isArray(req.body)) {
+      return res.status(400).json({ error: "Expected an array of languages" });
+    }
+    const languageData = req.body[0];
+    const newLanguage = new Language(languageData);
     await newLanguage.save();
-    res.status(201).json(newLanguage);
+    const languages = [newLanguage];
+    if (req.body.length > 1) {
+      for (let i = 1; i < req.body.length; i++) {
+        const language = new Language(req.body[i]);
+        await language.save();
+        languages.push(language);
+      }
+    }
+    res.status(201).json(languages);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

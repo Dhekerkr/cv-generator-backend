@@ -4,25 +4,27 @@ const educationSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required : true,
   },
   school: {
     type: String,
-    required: true
+    required : true,
   },
   degree: {
     type: String,
-    required: true
+    required : true,
   },
   startDate: {
     type: Date,
-    required: true
+    required : true,
   },
   endDate: {
-    type: Date
+    type: Date,
+    required : true,
   },
   description: {
     type: String
+  
   },
   createdAt: {
     type: Date,

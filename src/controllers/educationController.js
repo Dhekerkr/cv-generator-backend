@@ -3,10 +3,23 @@ const Education = require('../models/educationModel.js');
 // Create a new Education
 exports.createEducation = async (req, res) => {
   try {
-    const newEducation = new Education(req.body);
+    if(!Array.isArray(req.body)){
+      return res.status(400).json({error:"Expected an array of educations"});
+    }
+    const educationData=req.body[0];
+    const newEducation = new Education(educationData);    
     await newEducation.save();
-    res.status(201).json(newEducation);
+    const educations = [newEducation];
+    if (req.body.length >1){
+      for(let i =1; i<req.body.length; i++){
+        const education = new Education(req.body[i]);
+        await education.save();
+        educations.push(education);
+      }
+    }
+    res.status(201).json(educations);
   } catch (error) {
+    console.error("Detailed error:", error);
     res.status(400).json({ error: error.message });
   }
 };

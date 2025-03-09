@@ -3,9 +3,21 @@ const SoftSkill = require('../models/softSkillModel.js');
 // Create a new Soft Skill
 exports.createSoftSkill = async (req, res) => {
   try {
-    const newSoftSkill = new SoftSkill(req.body);
+    if (!Array.isArray(req.body)) {
+      return res.status(400).json({ error: "Expected an array of soft skills" });
+    }
+    const softskillData = req.body[0];
+    const newSoftSkill = new SoftSkill(softskillData);
     await newSoftSkill.save();
-    res.status(201).json(newSoftSkill);
+    const softskills=[newSoftSkill];
+    if (req.body.length > 1) {
+      for (let i = 1; i < req.body.length; i++) {
+        const softskill = new SoftSkill(req.body[i]);
+        await softskill.save();
+        softskills.push(softskill);
+      }
+    }
+    res.status(201).json(softskills);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

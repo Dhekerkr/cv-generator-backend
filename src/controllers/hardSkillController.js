@@ -3,10 +3,23 @@ const HardSkill = require('../models/hardSkillModel.js');
 // Create a new Hard Skill
 exports.createHardSkill = async (req, res) => {
   try {
-    const newHardSkill = new HardSkill(req.body);
+    if (!Array.isArray(req.body)){
+      return res.status(400).json({error:"Expected an array of hard skills !"});
+    }
+    const hardskillData=req.body[0];
+    const newHardSkill = new HardSkill(hardskillData);
     await newHardSkill.save();
-    res.status(201).json(newHardSkill);
+    const hardskills = [newHardSkill];
+    if(req.body.length>1){
+      for(let i=1; i<req.body.length; i++){
+        const hardskill = new HardSkill(req.body[i]);
+        await hardskill.save;
+        hardskills.push(hardskill);
+      }
+    }
+    res.status(201).json(hardskills);
   } catch (error) {
+    console.error("Detailed error:", error);
     res.status(400).json({ error: error.message });
   }
 };

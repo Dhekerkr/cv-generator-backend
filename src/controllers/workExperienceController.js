@@ -3,9 +3,21 @@ const WorkExperience = require('../models/workExperienceModel.js');
 // Create a new Work Experience
 exports.createWorkExperience = async (req, res) => {
   try {
-    const newWorkExperience = new WorkExperience(req.body);
+    if (!Array.isArray(req.body)) {
+      return res.status(400).json({ error: "Expected an array of work experiences " });
+    }
+    const workexperienceData = req.body[0];
+    const newWorkExperience = new WorkExperience(workexperienceData);
     await newWorkExperience.save();
-    res.status(201).json(newWorkExperience);
+    const workexperiences= [newWorkExperience];
+    if (req.body.length > 1) {
+      for (let i = 1; i < req.body.length; i++) {
+        const Workexperience = new WorkExperience(req.body[i]);
+        await workexperience.save();
+        workexperiences.push(workexperience);
+      }
+    }
+    res.status(201).json(workexperiences);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

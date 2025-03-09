@@ -4,25 +4,27 @@ const workExperienceSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required : true,
   },
   company: {
     type: String,
-    required: true
+    required : true,
   },
   position: {
     type: String,
-    required: true
+    required : true,
   },
   startDate: {
     type: Date,
-    required: true
+    required : true,
   },
   endDate: {
-    type: Date
+    type: Date,
+    required : true,
   },
   description: {
-    type: String
+    type: String,
+    required : true,
   },
   createdAt: {
     type: Date,

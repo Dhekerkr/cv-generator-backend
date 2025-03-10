@@ -24,6 +24,7 @@ app.use('/api/education', require('./routes/educationRoutes.js'));
 app.use('/api/projects', require('./routes/projectRoutes.js')); 
 app.use('/api/certifications', require('./routes/certificationRoutes.js'));
 app.use('/api/languages', require('./routes/languageRoutes.js')); 
+app.use('/api/userDAta', require('./routes/userDataRoutes.js'));
 
 // Default route
 app.get('/', (req, res) => {
